@@ -79,6 +79,9 @@ st.header("Nombre d'accident mortel sur nombre d'accident total entre 1985 et 19
 condition = (df['fatal_accidents_85_99'] == 0)
 resultats = df[condition].copy()
 
+# Vérifier les données
+print(resultats)
+
 plt.figure(figsize=(10, 6))
 plt.plot(resultats['airline'], resultats['incidents_85_99'], label='incidents_85_99', color='blue', marker='o')
 plt.plot(resultats['airline'], resultats['fatal_accidents_85_99'], label='fatal_accidents_85_99', color='red', marker='o')
