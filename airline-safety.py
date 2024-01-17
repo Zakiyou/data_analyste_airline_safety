@@ -80,7 +80,7 @@ condition = (df['fatal_accidents_85_99'] == 0)
 resultats = df[condition].copy()
 
 # Vérifier les données
-print(resultats)
+st.table(resultats)
 
 plt.figure(figsize=(10, 6))
 plt.plot(resultats['airline'], resultats['incidents_85_99'], label='incidents_85_99', color='blue', marker='o')
