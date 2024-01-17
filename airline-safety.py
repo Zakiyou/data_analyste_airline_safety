@@ -74,33 +74,6 @@ condition = (df['fatal_accidents_85_99'] == 0) & (df['fatal_accidents_00_14'] ==
 resultats = df.loc[condition, ['airline', 'fatal_accidents_85_99', 'fatal_accidents_00_14']]
 st.table(resultats)
 
-# Visualisation 5 : Nombre d'accident mortel sur nombre d'accident total entre 1985 et 1999
-st.header("Nombre d'accident mortel sur nombre d'accident total entre 1985 et 1999")
-condition = (df['fatal_accidents_85_99'] == 0)
-resultats = df[condition].copy()
-
-# Vérifier les données
-st.table(resultats)
-
-plt.figure(figsize=(10, 6))
-plt.plot(resultats['airline'], resultats['incidents_85_99'], label='incidents_85_99', color='blue', marker='o')
-plt.plot(resultats['airline'], resultats['fatal_accidents_85_99'], label='fatal_accidents_85_99', color='red', marker='o')
-
-plt.title("Nombre d'accident mortel sur nombre d'accident total entre 1985 et 1999")
-plt.xlabel('Compagnies aériennes')
-plt.ylabel("Nombre d'accident")
-plt.xticks(rotation=45, ha='right')
-for i, txt in enumerate(resultats['incidents_85_99']):
-    plt.text(i, txt, f"{txt}", ha='center', va='bottom', fontsize=10, color='black')
-
-for i, txt in enumerate(resultats['fatal_accidents_85_99']):
-    plt.text(i, txt, f"{txt}", ha='center', va='bottom', fontsize=10, color='black')
-
-plt.legend()
-plt.grid(True)
-st.pyplot(plt)
-
-
 # Visualisation 7 : Top 5 des compagnies avec le plus grand nombre de décès entre 1985 et 2014
 st.header("Top 5 des compagnies avec le plus grand nombre de décès entre 1985 et 2014")
 df['total_fatalities'] = df['fatalities_85_99'] + df['fatalities_00_14']
